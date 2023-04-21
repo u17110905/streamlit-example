@@ -76,12 +76,16 @@ routes['Source airport ID'] = routes['Source airport ID'].astype(str)
 routes['Destination airport ID'] = routes['Destination airport ID'].astype(str)
 
 
-# Join the airports table twice to the routes table- The resu
-source_airport_info = airports[['Airport ID', 'Latitude', 'Longitude']]
-source_airport_info.columns = ['Source airport ID', 'Source Latitude', 'Source Longitude']
 
-destination_airport_info = airports[['Airport ID', 'Latitude', 'Longitude']]
-destination_airport_info.columns = ['Destination airport ID', 'Destination Latitude', 'Destination Longitude']
+
+# Join the airports table twice to the routes table- The resu
+source_airport_info = airports[['Airport ID','Name' ,'Latitude', 'Longitude']]
+source_airport_info.columns = ['Source airport ID','Name', 'Source Latitude', 'Source Longitude']
+
+
+destination_airport_info = airports[['Airport ID','Name', 'Latitude', 'Longitude']]
+destination_airport_info.columns = ['Destination airport ID','Name', 'Destination Latitude', 'Destination Longitude']
+
 
 joined_table = pd.merge(routes, source_airport_info, on='Source airport ID', how='left')
 join = pd.merge(joined_table, destination_airport_info, on='Destination airport ID', how='left')
