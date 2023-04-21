@@ -1,3 +1,8 @@
 altair
 pandas
 streamlit
+plotly
+requests
+folium
+numpy
+streamlit-folium
