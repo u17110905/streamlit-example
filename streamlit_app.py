@@ -59,7 +59,7 @@ st.header("Airline Data")
 st.write(airlines)
 st.subheader("Airline Count by Country")
 airline_counts = airlines.groupby("Country").size().reset_index(name="Count")
-st.bar( data = airline_counts, x="Country", y="Count", color="Country", title="Airline Count by Country")
+st.bar_chart(data = airline_counts, x="Country", y="Count")
 #fig1 = px.bar(airline_counts, x="Country", y="Count", color="Country", title="Airline Count by Country")
 #st.plotly_chart(fig1, theme = 'streamlit')
 
